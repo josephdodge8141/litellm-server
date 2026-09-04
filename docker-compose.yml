@@ -8,7 +8,8 @@ services:
     volumes:
       - ./config.yaml:/app/config.yaml:ro
     env_file:
-      - .env
+      - path: .env
+        required: false
     environment:
       # Bedrock auth: litellm reads these for bedrock/ models
       AWS_BEARER_TOKEN_BEDROCK: ${AWS_BEARER_TOKEN_BEDROCK:-}
