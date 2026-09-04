@@ -1,4 +1,27 @@
 services:
+  postgres:
+    build:
+      context: ./postgres
+      dockerfile: Dockerfile
+    image: litellm-postgres:local
+    container_name: litellm-postgres
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-litellm}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-litellm}
+      POSTGRES_DB: ${POSTGRES_DB:-litellm}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER:-litellm} -d $${POSTGRES_DB:-litellm}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+
   litellm:
     build: .
     image: litellm-server:local
@@ -11,6 +34,7 @@ services:
       - path: .env
         required: false
     environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-litellm}:${POSTGRES_PASSWORD:-litellm}@postgres:5432/${POSTGRES_DB:-litellm}
       # Bedrock auth: litellm reads these for bedrock/ models
       AWS_BEARER_TOKEN_BEDROCK: ${AWS_BEARER_TOKEN_BEDROCK:-}
       AWS_REGION: ${AWS_REGION:-us-east-1}
@@ -18,6 +42,10 @@ services:
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
       LITELLM_MASTER_KEY: ${LITELLM_MASTER_KEY:-sk-litellm-local-dev}
+      STORE_MODEL_IN_DB: "false"
+    depends_on:
+      postgres:
+        condition: service_healthy
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:4000/health/liveliness"]
@@ -25,4 +53,8 @@ services:
       timeout: 5s
       retries: 3
       start_period: 20s
+
+volumes:
+  postgres_data:
+    name: litellm_postgres_data
 
