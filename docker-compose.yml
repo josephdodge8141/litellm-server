@@ -22,6 +22,27 @@ services:
       start_period: 10s
     restart: unless-stopped
 
+  redis:
+    build:
+      context: ./redis
+      dockerfile: Dockerfile
+    image: litellm-redis:local
+    container_name: litellm-redis
+    env_file:
+      - path: .env
+        required: false
+    # no password locally; add --requirepass $REDIS_PASSWORD via command if needed
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+    restart: unless-stopped
+
   litellm:
     build: .
     image: litellm-server:local
@@ -35,6 +56,9 @@ services:
         required: false
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER:-litellm}:${POSTGRES_PASSWORD:-litellm}@postgres:5432/${POSTGRES_DB:-litellm}
+      REDIS_HOST: ${REDIS_HOST:-redis}
+      REDIS_PORT: ${REDIS_PORT:-6379}
+      REDIS_PASSWORD: ${REDIS_PASSWORD:-}
       # Bedrock auth: litellm reads these for bedrock/ models
       AWS_BEARER_TOKEN_BEDROCK: ${AWS_BEARER_TOKEN_BEDROCK:-}
       AWS_REGION: ${AWS_REGION:-us-east-1}
@@ -45,6 +69,8 @@ services:
       STORE_MODEL_IN_DB: "false"
     depends_on:
       postgres:
+        condition: service_healthy
+      redis:
         condition: service_healthy
     restart: unless-stopped
     healthcheck:
@@ -57,4 +83,6 @@ services:
 volumes:
   postgres_data:
     name: litellm_postgres_data
+  redis_data:
+    name: litellm_redis_data
 
