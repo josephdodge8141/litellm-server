@@ -59,12 +59,9 @@ services:
       REDIS_HOST: ${REDIS_HOST:-redis}
       REDIS_PORT: ${REDIS_PORT:-6379}
       REDIS_PASSWORD: ${REDIS_PASSWORD:-}
-      # Bedrock auth: litellm reads these for bedrock/ models
+      # Bedrock auth: bearer token only (do NOT pass stale SigV4 keys from host MFA session)
       AWS_BEARER_TOKEN_BEDROCK: ${AWS_BEARER_TOKEN_BEDROCK:-}
       AWS_REGION: ${AWS_REGION:-us-east-1}
-      # Fallback if using IAM access keys instead of bearer token
-      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
-      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
       LITELLM_MASTER_KEY: ${LITELLM_MASTER_KEY:-sk-litellm-local-dev}
       STORE_MODEL_IN_DB: "false"
     depends_on:
