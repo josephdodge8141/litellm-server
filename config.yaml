@@ -1,800 +1,1459 @@
 model_list:
-  # ── Chat / Converse (TEXT→TEXT) ──
-  - model_name: ai21-jamba-1-5-large-v1-0
+  - model_name: ai21-jamba-1-5-large-v1-0  # $2.00 in / $8.00 out per 1M tokens (via ai21.jamba-1-5-large-v1:0)
     litellm_params:
       model: bedrock/ai21.jamba-1-5-large-v1:0
       aws_region_name: us-east-1
-  - model_name: ai21-jamba-1-5-mini-v1-0
+    model_info:
+      input_cost_per_token: 2.0e-06
+      output_cost_per_token: 8.0e-06
+  - model_name: ai21-jamba-1-5-mini-v1-0  # $0.20 in / $0.40 out per 1M tokens (via ai21.jamba-1-5-mini-v1:0)
     litellm_params:
       model: bedrock/ai21.jamba-1-5-mini-v1:0
       aws_region_name: us-east-1
-  - model_name: amazon-nova-2-lite-v1-0
+    model_info:
+      input_cost_per_token: 2.0e-07
+      output_cost_per_token: 4.0e-07
+  - model_name: amazon-nova-2-lite-v1-0  # $0.30 in / $2.50 out per 1M tokens (via amazon.nova-2-lite-v1:0)
     litellm_params:
       model: bedrock/amazon.nova-2-lite-v1:0
       aws_region_name: us-east-1
-  - model_name: amazon-nova-2-lite-v1-0-256k
+    model_info:
+      input_cost_per_token: 3.0e-07
+      output_cost_per_token: 2.5e-06
+      cache_read_input_token_cost: 7.5e-08
+  - model_name: amazon-nova-2-lite-v1-0-256k  # $0.30 in / $2.50 out per 1M tokens (via amazon.nova-2-lite-v1:0)
     litellm_params:
       model: bedrock/amazon.nova-2-lite-v1:0:256k
       aws_region_name: us-east-1
-  - model_name: amazon-nova-lite-v1-0
+    model_info:
+      input_cost_per_token: 3.0e-07
+      output_cost_per_token: 2.5e-06
+      cache_read_input_token_cost: 7.5e-08
+  - model_name: amazon-nova-lite-v1-0  # $0.06 in / $0.24 out per 1M tokens (via amazon.nova-lite-v1:0)
     litellm_params:
       model: bedrock/amazon.nova-lite-v1:0
       aws_region_name: us-east-1
-  - model_name: amazon-nova-lite-v1-0-24k
+    model_info:
+      input_cost_per_token: 6.0e-08
+      output_cost_per_token: 2.4e-07
+  - model_name: amazon-nova-lite-v1-0-24k  # $0.06 in / $0.24 out per 1M tokens (via amazon.nova-lite-v1:0)
     litellm_params:
       model: bedrock/amazon.nova-lite-v1:0:24k
       aws_region_name: us-east-1
-  - model_name: amazon-nova-lite-v1-0-300k
+    model_info:
+      input_cost_per_token: 6.0e-08
+      output_cost_per_token: 2.4e-07
+  - model_name: amazon-nova-lite-v1-0-300k  # $0.06 in / $0.24 out per 1M tokens (via amazon.nova-lite-v1:0)
     litellm_params:
       model: bedrock/amazon.nova-lite-v1:0:300k
       aws_region_name: us-east-1
-  - model_name: amazon-nova-micro-v1-0
+    model_info:
+      input_cost_per_token: 6.0e-08
+      output_cost_per_token: 2.4e-07
+  - model_name: amazon-nova-micro-v1-0  # $0.04 in / $0.14 out per 1M tokens (via amazon.nova-micro-v1:0)
     litellm_params:
       model: bedrock/amazon.nova-micro-v1:0
       aws_region_name: us-east-1
-  - model_name: amazon-nova-micro-v1-0-128k
+    model_info:
+      input_cost_per_token: 3.5e-08
+      output_cost_per_token: 1.4e-07
+  - model_name: amazon-nova-micro-v1-0-128k  # $0.04 in / $0.14 out per 1M tokens (via amazon.nova-micro-v1:0)
     litellm_params:
       model: bedrock/amazon.nova-micro-v1:0:128k
       aws_region_name: us-east-1
-  - model_name: amazon-nova-micro-v1-0-24k
+    model_info:
+      input_cost_per_token: 3.5e-08
+      output_cost_per_token: 1.4e-07
+  - model_name: amazon-nova-micro-v1-0-24k  # $0.04 in / $0.14 out per 1M tokens (via amazon.nova-micro-v1:0)
     litellm_params:
       model: bedrock/amazon.nova-micro-v1:0:24k
       aws_region_name: us-east-1
-  - model_name: amazon-nova-premier-v1-0
+    model_info:
+      input_cost_per_token: 3.5e-08
+      output_cost_per_token: 1.4e-07
+  - model_name: amazon-nova-premier-v1-0  # $2.50 in / $12.50 out per 1M tokens (via us.amazon.nova-premier-v1:0)
     litellm_params:
       model: bedrock/amazon.nova-premier-v1:0
       aws_region_name: us-east-1
-  - model_name: amazon-nova-premier-v1-0-1000k
+    model_info:
+      input_cost_per_token: 2.5e-06
+      output_cost_per_token: 1.25e-05
+  - model_name: amazon-nova-premier-v1-0-1000k  # $2.50 in / $12.50 out per 1M tokens (via manual fallback amazon-nova-premier-v1-0-1000k)
     litellm_params:
       model: bedrock/amazon.nova-premier-v1:0:1000k
       aws_region_name: us-east-1
-  - model_name: amazon-nova-premier-v1-0-20k
+    model_info:
+      input_cost_per_token: 2.5e-06
+      output_cost_per_token: 1.25e-05
+  - model_name: amazon-nova-premier-v1-0-20k  # $2.50 in / $12.50 out per 1M tokens (via manual fallback amazon-nova-premier-v1-0-20k)
     litellm_params:
       model: bedrock/amazon.nova-premier-v1:0:20k
       aws_region_name: us-east-1
-  - model_name: amazon-nova-premier-v1-0-8k
+    model_info:
+      input_cost_per_token: 2.5e-06
+      output_cost_per_token: 1.25e-05
+  - model_name: amazon-nova-premier-v1-0-8k  # $2.50 in / $12.50 out per 1M tokens (via manual fallback amazon-nova-premier-v1-0-8k)
     litellm_params:
       model: bedrock/amazon.nova-premier-v1:0:8k
       aws_region_name: us-east-1
-  - model_name: amazon-nova-premier-v1-0-mm
+    model_info:
+      input_cost_per_token: 2.5e-06
+      output_cost_per_token: 1.25e-05
+  - model_name: amazon-nova-premier-v1-0-mm  # $2.50 in / $12.50 out per 1M tokens (via manual fallback amazon-nova-premier-v1-0-mm)
     litellm_params:
       model: bedrock/amazon.nova-premier-v1:0:mm
       aws_region_name: us-east-1
-  - model_name: amazon-nova-pro-v1-0
+    model_info:
+      input_cost_per_token: 2.5e-06
+      output_cost_per_token: 1.25e-05
+  - model_name: amazon-nova-pro-v1-0  # $0.80 in / $3.20 out per 1M tokens (via amazon.nova-pro-v1:0)
     litellm_params:
       model: bedrock/amazon.nova-pro-v1:0
       aws_region_name: us-east-1
-  - model_name: amazon-nova-pro-v1-0-24k
+    model_info:
+      input_cost_per_token: 8.0e-07
+      output_cost_per_token: 3.2e-06
+  - model_name: amazon-nova-pro-v1-0-24k  # $0.80 in / $3.20 out per 1M tokens (via amazon.nova-pro-v1:0)
     litellm_params:
       model: bedrock/amazon.nova-pro-v1:0:24k
       aws_region_name: us-east-1
-  - model_name: amazon-nova-pro-v1-0-300k
+    model_info:
+      input_cost_per_token: 8.0e-07
+      output_cost_per_token: 3.2e-06
+  - model_name: amazon-nova-pro-v1-0-300k  # $0.80 in / $3.20 out per 1M tokens (via amazon.nova-pro-v1:0)
     litellm_params:
       model: bedrock/amazon.nova-pro-v1:0:300k
       aws_region_name: us-east-1
-  - model_name: anthropic-claude-3-haiku-20240307-v1-0
+    model_info:
+      input_cost_per_token: 8.0e-07
+      output_cost_per_token: 3.2e-06
+  - model_name: anthropic-claude-3-haiku-20240307-v1-0  # $0.25 in / $1.25 out per 1M tokens (via anthropic.claude-3-haiku-20240307-v1:0)
     litellm_params:
       model: bedrock/anthropic.claude-3-haiku-20240307-v1:0
       aws_region_name: us-east-1
-  - model_name: anthropic-claude-3-haiku-20240307-v1-0-200k
+    model_info:
+      input_cost_per_token: 2.5e-07
+      output_cost_per_token: 1.25e-06
+      cache_creation_input_token_cost: 3.125e-07
+      cache_read_input_token_cost: 2.5e-08
+  - model_name: anthropic-claude-3-haiku-20240307-v1-0-200k  # $0.25 in / $1.25 out per 1M tokens (via anthropic.claude-3-haiku-20240307-v1:0)
     litellm_params:
       model: bedrock/anthropic.claude-3-haiku-20240307-v1:0:200k
       aws_region_name: us-east-1
-  - model_name: anthropic-claude-3-haiku-20240307-v1-0-48k
+    model_info:
+      input_cost_per_token: 2.5e-07
+      output_cost_per_token: 1.25e-06
+      cache_creation_input_token_cost: 3.125e-07
+      cache_read_input_token_cost: 2.5e-08
+  - model_name: anthropic-claude-3-haiku-20240307-v1-0-48k  # $0.25 in / $1.25 out per 1M tokens (via anthropic.claude-3-haiku-20240307-v1:0)
     litellm_params:
       model: bedrock/anthropic.claude-3-haiku-20240307-v1:0:48k
       aws_region_name: us-east-1
-  - model_name: anthropic-claude-fable-5
+    model_info:
+      input_cost_per_token: 2.5e-07
+      output_cost_per_token: 1.25e-06
+      cache_creation_input_token_cost: 3.125e-07
+      cache_read_input_token_cost: 2.5e-08
+  - model_name: anthropic-claude-fable-5  # $10.00 in / $50.00 out per 1M tokens (via anthropic.claude-fable-5)
     litellm_params:
       model: bedrock/anthropic.claude-fable-5
       aws_region_name: us-east-1
-  - model_name: anthropic-claude-fable-5-1
+    model_info:
+      input_cost_per_token: 1.0e-05
+      output_cost_per_token: 5.0e-05
+      cache_creation_input_token_cost: 1.25e-05
+      cache_read_input_token_cost: 1.0e-06
+  - model_name: anthropic-claude-fable-5-1  # $10.00 in / $50.00 out per 1M tokens (via anthropic.claude-fable-5-1)
     litellm_params:
       model: bedrock/anthropic.claude-fable-5-1
       aws_region_name: us-east-1
-  - model_name: anthropic-claude-haiku-4-5-20251001-v1-0
+    model_info:
+      input_cost_per_token: 1.0e-05
+      output_cost_per_token: 5.0e-05
+      cache_creation_input_token_cost: 1.25e-05
+      cache_read_input_token_cost: 2.5e-07
+  - model_name: anthropic-claude-haiku-4-5-20251001-v1-0  # $1.00 in / $5.00 out per 1M tokens (via anthropic.claude-haiku-4-5-20251001-v1:0)
     litellm_params:
       model: bedrock/anthropic.claude-haiku-4-5-20251001-v1:0
       aws_region_name: us-east-1
-  - model_name: anthropic-claude-opus-4-1-20250805-v1-0
+    model_info:
+      input_cost_per_token: 1.0e-06
+      output_cost_per_token: 5.0e-06
+      cache_creation_input_token_cost: 1.25e-06
+      cache_read_input_token_cost: 1.0e-07
+  - model_name: anthropic-claude-opus-4-1-20250805-v1-0  # $15.00 in / $75.00 out per 1M tokens (via anthropic.claude-opus-4-1-20250805-v1:0)
     litellm_params:
       model: bedrock/anthropic.claude-opus-4-1-20250805-v1:0
       aws_region_name: us-east-1
-  - model_name: anthropic-claude-opus-4-5-20251101-v1-0
+    model_info:
+      input_cost_per_token: 1.5e-05
+      output_cost_per_token: 7.5e-05
+      cache_creation_input_token_cost: 1.875e-05
+      cache_read_input_token_cost: 1.5e-06
+  - model_name: anthropic-claude-opus-4-5-20251101-v1-0  # $5.00 in / $25.00 out per 1M tokens (via anthropic.claude-opus-4-5-20251101-v1:0)
     litellm_params:
       model: bedrock/anthropic.claude-opus-4-5-20251101-v1:0
       aws_region_name: us-east-1
-  - model_name: anthropic-claude-opus-4-6-v1
+    model_info:
+      input_cost_per_token: 5.0e-06
+      output_cost_per_token: 2.5e-05
+      cache_creation_input_token_cost: 6.25e-06
+      cache_read_input_token_cost: 5.0e-07
+  - model_name: anthropic-claude-opus-4-6-v1  # $5.00 in / $25.00 out per 1M tokens (via anthropic.claude-opus-4-6-v1)
     litellm_params:
       model: bedrock/anthropic.claude-opus-4-6-v1
       aws_region_name: us-east-1
-  - model_name: anthropic-claude-opus-4-7
+    model_info:
+      input_cost_per_token: 5.0e-06
+      output_cost_per_token: 2.5e-05
+      cache_creation_input_token_cost: 6.25e-06
+      cache_read_input_token_cost: 5.0e-07
+  - model_name: anthropic-claude-opus-4-7  # $5.00 in / $25.00 out per 1M tokens (via anthropic.claude-opus-4-7)
     litellm_params:
       model: bedrock/anthropic.claude-opus-4-7
       aws_region_name: us-east-1
-  - model_name: anthropic-claude-opus-4-8
+    model_info:
+      input_cost_per_token: 5.0e-06
+      output_cost_per_token: 2.5e-05
+      cache_creation_input_token_cost: 6.25e-06
+      cache_read_input_token_cost: 5.0e-07
+  - model_name: anthropic-claude-opus-4-8  # $5.00 in / $25.00 out per 1M tokens (via anthropic.claude-opus-4-8)
     litellm_params:
       model: bedrock/anthropic.claude-opus-4-8
       aws_region_name: us-east-1
-  - model_name: anthropic-claude-opus-5
+    model_info:
+      input_cost_per_token: 5.0e-06
+      output_cost_per_token: 2.5e-05
+      cache_creation_input_token_cost: 6.25e-06
+      cache_read_input_token_cost: 5.0e-07
+  - model_name: anthropic-claude-opus-5  # $5.00 in / $25.00 out per 1M tokens (via anthropic.claude-opus-5)
     litellm_params:
       model: bedrock/anthropic.claude-opus-5
       aws_region_name: us-east-1
-  - model_name: anthropic-claude-sonnet-4-20250514-v1-0
+    model_info:
+      input_cost_per_token: 5.0e-06
+      output_cost_per_token: 2.5e-05
+      cache_creation_input_token_cost: 6.25e-06
+      cache_read_input_token_cost: 5.0e-07
+  - model_name: anthropic-claude-sonnet-4-20250514-v1-0  # $3.00 in / $15.00 out per 1M tokens (via anthropic.claude-sonnet-4-20250514-v1:0)
     litellm_params:
       model: bedrock/anthropic.claude-sonnet-4-20250514-v1:0
       aws_region_name: us-east-1
-  - model_name: anthropic-claude-sonnet-4-5-20250929-v1-0
+    model_info:
+      input_cost_per_token: 3.0e-06
+      output_cost_per_token: 1.5e-05
+      cache_creation_input_token_cost: 3.75e-06
+      cache_read_input_token_cost: 3.0e-07
+  - model_name: anthropic-claude-sonnet-4-5-20250929-v1-0  # $3.00 in / $15.00 out per 1M tokens (via anthropic.claude-sonnet-4-5-20250929-v1:0)
     litellm_params:
       model: bedrock/anthropic.claude-sonnet-4-5-20250929-v1:0
       aws_region_name: us-east-1
-  - model_name: anthropic-claude-sonnet-4-6
+    model_info:
+      input_cost_per_token: 3.0e-06
+      output_cost_per_token: 1.5e-05
+      cache_creation_input_token_cost: 3.75e-06
+      cache_read_input_token_cost: 3.0e-07
+  - model_name: anthropic-claude-sonnet-4-6  # $3.00 in / $15.00 out per 1M tokens (via anthropic.claude-sonnet-4-6)
     litellm_params:
       model: bedrock/anthropic.claude-sonnet-4-6
       aws_region_name: us-east-1
-  - model_name: anthropic-claude-sonnet-5
+    model_info:
+      input_cost_per_token: 3.0e-06
+      output_cost_per_token: 1.5e-05
+      cache_creation_input_token_cost: 3.75e-06
+      cache_read_input_token_cost: 3.0e-07
+  - model_name: anthropic-claude-sonnet-5  # $2.00 in / $10.00 out per 1M tokens (via anthropic.claude-sonnet-5)
     litellm_params:
       model: bedrock/anthropic.claude-sonnet-5
       aws_region_name: us-east-1
-  - model_name: cohere-rerank-v3-5-0
+    model_info:
+      input_cost_per_token: 2.0e-06
+      output_cost_per_token: 1.0e-05
+      cache_creation_input_token_cost: 2.5e-06
+      cache_read_input_token_cost: 2.0e-07
+  - model_name: cohere-rerank-v3-5-0  # $0.0020/query (rerank, via cohere.rerank-v3-5:0)
     litellm_params:
       model: bedrock/cohere.rerank-v3-5:0
       aws_region_name: us-east-1
-  - model_name: deepseek-r1-v1-0
+    model_info:
+      input_cost_per_query: 0.002
+  - model_name: deepseek-r1-v1-0  # $1.35 in / $5.40 out per 1M tokens (via us.deepseek.r1-v1:0)
     litellm_params:
       model: bedrock/deepseek.r1-v1:0
       aws_region_name: us-east-1
-  - model_name: deepseek-v3-2
+    model_info:
+      input_cost_per_token: 1.35e-06
+      output_cost_per_token: 5.4e-06
+  - model_name: deepseek-v3-2  # $0.62 in / $1.85 out per 1M tokens (via deepseek.v3.2)
     litellm_params:
       model: bedrock/deepseek.v3.2
       aws_region_name: us-east-1
-  - model_name: google-gemma-3-12b-it
+    model_info:
+      input_cost_per_token: 6.2e-07
+      output_cost_per_token: 1.85e-06
+  - model_name: google-gemma-3-12b-it  # $0.09 in / $0.29 out per 1M tokens (via google.gemma-3-12b-it)
     litellm_params:
       model: bedrock/google.gemma-3-12b-it
       aws_region_name: us-east-1
-  - model_name: google-gemma-3-27b-it
+    model_info:
+      input_cost_per_token: 9.0e-08
+      output_cost_per_token: 2.9e-07
+  - model_name: google-gemma-3-27b-it  # $0.23 in / $0.38 out per 1M tokens (via google.gemma-3-27b-it)
     litellm_params:
       model: bedrock/google.gemma-3-27b-it
       aws_region_name: us-east-1
-  - model_name: google-gemma-3-4b-it
+    model_info:
+      input_cost_per_token: 2.3e-07
+      output_cost_per_token: 3.8e-07
+  - model_name: google-gemma-3-4b-it  # $0.04 in / $0.08 out per 1M tokens (via google.gemma-3-4b-it)
     litellm_params:
       model: bedrock/google.gemma-3-4b-it
       aws_region_name: us-east-1
-  - model_name: meta-llama3-1-70b-instruct-v1-0
+    model_info:
+      input_cost_per_token: 4.0e-08
+      output_cost_per_token: 8.0e-08
+  - model_name: meta-llama3-1-70b-instruct-v1-0  # $0.99 in / $0.99 out per 1M tokens (via meta.llama3-1-70b-instruct-v1:0)
     litellm_params:
       model: bedrock/meta.llama3-1-70b-instruct-v1:0
       aws_region_name: us-east-1
-  - model_name: meta-llama3-1-8b-instruct-v1-0
+    model_info:
+      input_cost_per_token: 9.9e-07
+      output_cost_per_token: 9.9e-07
+  - model_name: meta-llama3-1-8b-instruct-v1-0  # $0.22 in / $0.22 out per 1M tokens (via meta.llama3-1-8b-instruct-v1:0)
     litellm_params:
       model: bedrock/meta.llama3-1-8b-instruct-v1:0
       aws_region_name: us-east-1
-  - model_name: meta-llama3-3-70b-instruct-v1-0
+    model_info:
+      input_cost_per_token: 2.2e-07
+      output_cost_per_token: 2.2e-07
+  - model_name: meta-llama3-3-70b-instruct-v1-0  # $0.72 in / $0.72 out per 1M tokens (via meta.llama3-3-70b-instruct-v1:0)
     litellm_params:
       model: bedrock/meta.llama3-3-70b-instruct-v1:0
       aws_region_name: us-east-1
-  - model_name: meta-llama3-70b-instruct-v1-0
+    model_info:
+      input_cost_per_token: 7.2e-07
+      output_cost_per_token: 7.2e-07
+  - model_name: meta-llama3-70b-instruct-v1-0  # $2.65 in / $3.50 out per 1M tokens (via meta.llama3-70b-instruct-v1:0)
     litellm_params:
       model: bedrock/meta.llama3-70b-instruct-v1:0
       aws_region_name: us-east-1
-  - model_name: meta-llama3-8b-instruct-v1-0
+    model_info:
+      input_cost_per_token: 2.65e-06
+      output_cost_per_token: 3.5e-06
+  - model_name: meta-llama3-8b-instruct-v1-0  # $0.30 in / $0.60 out per 1M tokens (via meta.llama3-8b-instruct-v1:0)
     litellm_params:
       model: bedrock/meta.llama3-8b-instruct-v1:0
       aws_region_name: us-east-1
-  - model_name: meta-llama4-maverick-17b-instruct-v1-0
+    model_info:
+      input_cost_per_token: 3.0e-07
+      output_cost_per_token: 6.0e-07
+  - model_name: meta-llama4-maverick-17b-instruct-v1-0  # $0.24 in / $0.97 out per 1M tokens (via meta.llama4-maverick-17b-instruct-v1:0)
     litellm_params:
       model: bedrock/meta.llama4-maverick-17b-instruct-v1:0
       aws_region_name: us-east-1
-  - model_name: meta-llama4-scout-17b-instruct-v1-0
+    model_info:
+      input_cost_per_token: 2.4e-07
+      output_cost_per_token: 9.7e-07
+  - model_name: meta-llama4-scout-17b-instruct-v1-0  # $0.17 in / $0.66 out per 1M tokens (via meta.llama4-scout-17b-instruct-v1:0)
     litellm_params:
       model: bedrock/meta.llama4-scout-17b-instruct-v1:0
       aws_region_name: us-east-1
-  - model_name: minimax-minimax-m2
+    model_info:
+      input_cost_per_token: 1.7e-07
+      output_cost_per_token: 6.6e-07
+  - model_name: minimax-minimax-m2  # $0.30 in / $1.20 out per 1M tokens (via minimax.minimax-m2)
     litellm_params:
       model: bedrock/minimax.minimax-m2
       aws_region_name: us-east-1
-  - model_name: minimax-minimax-m2-1
+    model_info:
+      input_cost_per_token: 3.0e-07
+      output_cost_per_token: 1.2e-06
+  - model_name: minimax-minimax-m2-1  # $0.30 in / $1.20 out per 1M tokens (via minimax.minimax-m2.1)
     litellm_params:
       model: bedrock/minimax.minimax-m2.1
       aws_region_name: us-east-1
-  - model_name: minimax-minimax-m2-5
+    model_info:
+      input_cost_per_token: 3.0e-07
+      output_cost_per_token: 1.2e-06
+  - model_name: minimax-minimax-m2-5  # $0.30 in / $1.20 out per 1M tokens (via minimax.minimax-m2.5)
     litellm_params:
       model: bedrock/minimax.minimax-m2.5
       aws_region_name: us-east-1
-  - model_name: mistral-devstral-2-123b
+    model_info:
+      input_cost_per_token: 3.0e-07
+      output_cost_per_token: 1.2e-06
+  - model_name: mistral-devstral-2-123b  # $0.40 in / $2.00 out per 1M tokens (via mistral.devstral-2-123b)
     litellm_params:
       model: bedrock/mistral.devstral-2-123b
       aws_region_name: us-east-1
-  - model_name: mistral-magistral-small-2509
+    model_info:
+      input_cost_per_token: 4.0e-07
+      output_cost_per_token: 2.0e-06
+  - model_name: mistral-magistral-small-2509  # $0.50 in / $1.50 out per 1M tokens (via mistral.magistral-small-2509)
     litellm_params:
       model: bedrock/mistral.magistral-small-2509
       aws_region_name: us-east-1
-  - model_name: mistral-ministral-3-14b-instruct
+    model_info:
+      input_cost_per_token: 5.0e-07
+      output_cost_per_token: 1.5e-06
+  - model_name: mistral-ministral-3-14b-instruct  # $0.20 in / $0.20 out per 1M tokens (via mistral.ministral-3-14b-instruct)
     litellm_params:
       model: bedrock/mistral.ministral-3-14b-instruct
       aws_region_name: us-east-1
-  - model_name: mistral-ministral-3-3b-instruct
+    model_info:
+      input_cost_per_token: 2.0e-07
+      output_cost_per_token: 2.0e-07
+  - model_name: mistral-ministral-3-3b-instruct  # $0.10 in / $0.10 out per 1M tokens (via mistral.ministral-3-3b-instruct)
     litellm_params:
       model: bedrock/mistral.ministral-3-3b-instruct
       aws_region_name: us-east-1
-  - model_name: mistral-ministral-3-8b-instruct
+    model_info:
+      input_cost_per_token: 1.0e-07
+      output_cost_per_token: 1.0e-07
+  - model_name: mistral-ministral-3-8b-instruct  # $0.15 in / $0.15 out per 1M tokens (via mistral.ministral-3-8b-instruct)
     litellm_params:
       model: bedrock/mistral.ministral-3-8b-instruct
       aws_region_name: us-east-1
-  - model_name: mistral-mistral-7b-instruct-v0-2
+    model_info:
+      input_cost_per_token: 1.5e-07
+      output_cost_per_token: 1.5e-07
+  - model_name: mistral-mistral-7b-instruct-v0-2  # $0.15 in / $0.20 out per 1M tokens (via mistral.mistral-7b-instruct-v0:2)
     litellm_params:
       model: bedrock/mistral.mistral-7b-instruct-v0:2
       aws_region_name: us-east-1
-  - model_name: mistral-mistral-large-2402-v1-0
+    model_info:
+      input_cost_per_token: 1.5e-07
+      output_cost_per_token: 2.0e-07
+  - model_name: mistral-mistral-large-2402-v1-0  # $8.00 in / $24.00 out per 1M tokens (via mistral.mistral-large-2402-v1:0)
     litellm_params:
       model: bedrock/mistral.mistral-large-2402-v1:0
       aws_region_name: us-east-1
-  - model_name: mistral-mistral-large-3-675b-instruct
+    model_info:
+      input_cost_per_token: 8.0e-06
+      output_cost_per_token: 2.4e-05
+  - model_name: mistral-mistral-large-3-675b-instruct  # $0.50 in / $1.50 out per 1M tokens (via mistral.mistral-large-3-675b-instruct)
     litellm_params:
       model: bedrock/mistral.mistral-large-3-675b-instruct
       aws_region_name: us-east-1
-  - model_name: mistral-mistral-small-2402-v1-0
+    model_info:
+      input_cost_per_token: 5.0e-07
+      output_cost_per_token: 1.5e-06
+  - model_name: mistral-mistral-small-2402-v1-0  # $1.00 in / $3.00 out per 1M tokens (via mistral.mistral-small-2402-v1:0)
     litellm_params:
       model: bedrock/mistral.mistral-small-2402-v1:0
       aws_region_name: us-east-1
-  - model_name: mistral-mixtral-8x7b-instruct-v0-1
+    model_info:
+      input_cost_per_token: 1.0e-06
+      output_cost_per_token: 3.0e-06
+  - model_name: mistral-mixtral-8x7b-instruct-v0-1  # $0.45 in / $0.70 out per 1M tokens (via mistral.mixtral-8x7b-instruct-v0:1)
     litellm_params:
       model: bedrock/mistral.mixtral-8x7b-instruct-v0:1
       aws_region_name: us-east-1
-  - model_name: mistral-pixtral-large-2502-v1-0
+    model_info:
+      input_cost_per_token: 4.5e-07
+      output_cost_per_token: 7.0e-07
+  - model_name: mistral-pixtral-large-2502-v1-0  # $2.00 in / $6.00 out per 1M tokens (via us.mistral.pixtral-large-2502-v1:0)
     litellm_params:
       model: bedrock/mistral.pixtral-large-2502-v1:0
       aws_region_name: us-east-1
-  - model_name: mistral-voxtral-mini-3b-2507
+    model_info:
+      input_cost_per_token: 2.0e-06
+      output_cost_per_token: 6.0e-06
+  - model_name: mistral-voxtral-mini-3b-2507  # $0.04 in / $0.04 out per 1M tokens (via mistral.voxtral-mini-3b-2507)
     litellm_params:
       model: bedrock/mistral.voxtral-mini-3b-2507
       aws_region_name: us-east-1
-  - model_name: mistral-voxtral-small-24b-2507
+    model_info:
+      input_cost_per_token: 4.0e-08
+      output_cost_per_token: 4.0e-08
+  - model_name: mistral-voxtral-small-24b-2507  # $0.10 in / $0.30 out per 1M tokens (via mistral.voxtral-small-24b-2507)
     litellm_params:
       model: bedrock/mistral.voxtral-small-24b-2507
       aws_region_name: us-east-1
-  - model_name: moonshot-kimi-k2-thinking
+    model_info:
+      input_cost_per_token: 1.0e-07
+      output_cost_per_token: 3.0e-07
+  - model_name: moonshot-kimi-k2-thinking  # $0.60 in / $2.50 out per 1M tokens (via moonshot.kimi-k2-thinking)
     litellm_params:
       model: bedrock/moonshot.kimi-k2-thinking
       aws_region_name: us-east-1
-  - model_name: moonshotai-kimi-k2-5
+    model_info:
+      input_cost_per_token: 6.0e-07
+      output_cost_per_token: 2.5e-06
+  - model_name: moonshotai-kimi-k2-5  # $0.60 in / $3.03 out per 1M tokens (via bedrock/moonshotai.kimi-k2.5)
     litellm_params:
       model: bedrock/moonshotai.kimi-k2.5
       aws_region_name: us-east-1
-  - model_name: nvidia-nemotron-nano-12b-v2
+    model_info:
+      input_cost_per_token: 6.0e-07
+      output_cost_per_token: 3.03e-06
+  - model_name: nvidia-nemotron-nano-12b-v2  # $0.20 in / $0.60 out per 1M tokens (via nvidia.nemotron-nano-12b-v2)
     litellm_params:
       model: bedrock/nvidia.nemotron-nano-12b-v2
       aws_region_name: us-east-1
-  - model_name: nvidia-nemotron-nano-3-30b
+    model_info:
+      input_cost_per_token: 2.0e-07
+      output_cost_per_token: 6.0e-07
+  - model_name: nvidia-nemotron-nano-3-30b  # $0.06 in / $0.24 out per 1M tokens (via nvidia.nemotron-nano-3-30b)
     litellm_params:
       model: bedrock/nvidia.nemotron-nano-3-30b
       aws_region_name: us-east-1
-  - model_name: nvidia-nemotron-nano-9b-v2
+    model_info:
+      input_cost_per_token: 6.0e-08
+      output_cost_per_token: 2.4e-07
+  - model_name: nvidia-nemotron-nano-9b-v2  # $0.06 in / $0.23 out per 1M tokens (via nvidia.nemotron-nano-9b-v2)
     litellm_params:
       model: bedrock/nvidia.nemotron-nano-9b-v2
       aws_region_name: us-east-1
-  - model_name: nvidia-nemotron-super-3-120b
+    model_info:
+      input_cost_per_token: 6.0e-08
+      output_cost_per_token: 2.3e-07
+  - model_name: nvidia-nemotron-super-3-120b  # $0.15 in / $0.65 out per 1M tokens (via nvidia.nemotron-super-3-120b)
     litellm_params:
       model: bedrock/nvidia.nemotron-super-3-120b
       aws_region_name: us-east-1
-  - model_name: openai-gpt-5-6-luna
+    model_info:
+      input_cost_per_token: 1.5e-07
+      output_cost_per_token: 6.5e-07
+  - model_name: openai-gpt-5-6-luna  # $0.22 in / $1.32 out per 1M tokens (via us.openai.gpt-5.6-luna)
     litellm_params:
       model: bedrock/openai.gpt-5.6-luna
       aws_region_name: us-east-1
-  - model_name: openai-gpt-5-6-sol
+    model_info:
+      input_cost_per_token: 2.2e-07
+      output_cost_per_token: 1.32e-06
+      cache_creation_input_token_cost: 2.75e-07
+      cache_read_input_token_cost: 2.2e-08
+  - model_name: openai-gpt-5-6-sol  # $4.40 in / $22.00 out per 1M tokens (via us.openai.gpt-5.6-sol)
     litellm_params:
       model: bedrock/openai.gpt-5.6-sol
       aws_region_name: us-east-1
-  - model_name: openai-gpt-5-6-terra
+    model_info:
+      input_cost_per_token: 4.4e-06
+      output_cost_per_token: 2.2e-05
+      cache_creation_input_token_cost: 5.5e-06
+      cache_read_input_token_cost: 4.4e-07
+  - model_name: openai-gpt-5-6-terra  # $2.20 in / $13.20 out per 1M tokens (via us.openai.gpt-5.6-terra)
     litellm_params:
       model: bedrock/openai.gpt-5.6-terra
       aws_region_name: us-east-1
-  - model_name: openai-gpt-oss-120b-1-0
+    model_info:
+      input_cost_per_token: 2.2e-06
+      output_cost_per_token: 1.32e-05
+      cache_creation_input_token_cost: 2.75e-06
+      cache_read_input_token_cost: 2.2e-07
+  - model_name: openai-gpt-oss-120b-1-0  # $0.15 in / $0.60 out per 1M tokens (via openai.gpt-oss-120b-1:0)
     litellm_params:
       model: bedrock/openai.gpt-oss-120b-1:0
       aws_region_name: us-east-1
-  - model_name: openai-gpt-oss-20b-1-0
+    model_info:
+      input_cost_per_token: 1.5e-07
+      output_cost_per_token: 6.0e-07
+  - model_name: openai-gpt-oss-20b-1-0  # $0.07 in / $0.30 out per 1M tokens (via openai.gpt-oss-20b-1:0)
     litellm_params:
       model: bedrock/openai.gpt-oss-20b-1:0
       aws_region_name: us-east-1
-  - model_name: openai-gpt-oss-safeguard-120b
+    model_info:
+      input_cost_per_token: 7.0e-08
+      output_cost_per_token: 3.0e-07
+  - model_name: openai-gpt-oss-safeguard-120b  # $0.15 in / $0.60 out per 1M tokens (via openai.gpt-oss-safeguard-120b)
     litellm_params:
       model: bedrock/openai.gpt-oss-safeguard-120b
       aws_region_name: us-east-1
-  - model_name: openai-gpt-oss-safeguard-20b
+    model_info:
+      input_cost_per_token: 1.5e-07
+      output_cost_per_token: 6.0e-07
+  - model_name: openai-gpt-oss-safeguard-20b  # $0.07 in / $0.20 out per 1M tokens (via openai.gpt-oss-safeguard-20b)
     litellm_params:
       model: bedrock/openai.gpt-oss-safeguard-20b
       aws_region_name: us-east-1
-  - model_name: qwen-qwen3-32b-v1-0
+    model_info:
+      input_cost_per_token: 7.0e-08
+      output_cost_per_token: 2.0e-07
+  - model_name: qwen-qwen3-32b-v1-0  # $0.15 in / $0.60 out per 1M tokens (via qwen.qwen3-32b-v1:0)
     litellm_params:
       model: bedrock/qwen.qwen3-32b-v1:0
       aws_region_name: us-east-1
-  - model_name: qwen-qwen3-coder-30b-a3b-v1-0
+    model_info:
+      input_cost_per_token: 1.5e-07
+      output_cost_per_token: 6.0e-07
+  - model_name: qwen-qwen3-coder-30b-a3b-v1-0  # $0.15 in / $0.60 out per 1M tokens (via qwen.qwen3-coder-30b-a3b-v1:0)
     litellm_params:
       model: bedrock/qwen.qwen3-coder-30b-a3b-v1:0
       aws_region_name: us-east-1
-  - model_name: qwen-qwen3-coder-next
+    model_info:
+      input_cost_per_token: 1.5e-07
+      output_cost_per_token: 6.0e-07
+  - model_name: qwen-qwen3-coder-next  # $0.50 in / $1.20 out per 1M tokens (via qwen.qwen3-coder-next)
     litellm_params:
       model: bedrock/qwen.qwen3-coder-next
       aws_region_name: us-east-1
-  - model_name: qwen-qwen3-next-80b-a3b
+    model_info:
+      input_cost_per_token: 5.0e-07
+      output_cost_per_token: 1.2e-06
+  - model_name: qwen-qwen3-next-80b-a3b  # $0.15 in / $1.20 out per 1M tokens (via qwen.qwen3-next-80b-a3b)
     litellm_params:
       model: bedrock/qwen.qwen3-next-80b-a3b
       aws_region_name: us-east-1
-  - model_name: qwen-qwen3-vl-235b-a22b
+    model_info:
+      input_cost_per_token: 1.5e-07
+      output_cost_per_token: 1.2e-06
+  - model_name: qwen-qwen3-vl-235b-a22b  # $0.53 in / $2.66 out per 1M tokens (via qwen.qwen3-vl-235b-a22b)
     litellm_params:
       model: bedrock/qwen.qwen3-vl-235b-a22b
       aws_region_name: us-east-1
-  - model_name: twelvelabs-pegasus-1-2-v1-0
+    model_info:
+      input_cost_per_token: 5.3e-07
+      output_cost_per_token: 2.66e-06
+  - model_name: twelvelabs-pegasus-1-2-v1-0  # $0.00 in / $7.50 out per 1M tokens (via twelvelabs.pegasus-1-2-v1:0)
     litellm_params:
       model: bedrock/twelvelabs.pegasus-1-2-v1:0
       aws_region_name: us-east-1
-  - model_name: writer-palmyra-vision-7b
+    model_info:
+      input_cost_per_token: 0
+      output_cost_per_token: 7.5e-06
+  - model_name: writer-palmyra-vision-7b  # $2.50 in / $10.00 out per 1M tokens (via writer.palmyra-x4-v1:0)
     litellm_params:
       model: bedrock/writer.palmyra-vision-7b
       aws_region_name: us-east-1
-  - model_name: writer-palmyra-x4-v1-0
+    model_info:
+      input_cost_per_token: 2.5e-06
+      output_cost_per_token: 1.0e-05
+  - model_name: writer-palmyra-x4-v1-0  # $2.50 in / $10.00 out per 1M tokens (via writer.palmyra-x4-v1:0)
     litellm_params:
       model: bedrock/writer.palmyra-x4-v1:0
       aws_region_name: us-east-1
-  - model_name: writer-palmyra-x5-v1-0
+    model_info:
+      input_cost_per_token: 2.5e-06
+      output_cost_per_token: 1.0e-05
+  - model_name: writer-palmyra-x5-v1-0  # $0.60 in / $6.00 out per 1M tokens (via writer.palmyra-x5-v1:0)
     litellm_params:
       model: bedrock/writer.palmyra-x5-v1:0
       aws_region_name: us-east-1
-  - model_name: zai-glm-4-7
+    model_info:
+      input_cost_per_token: 6.0e-07
+      output_cost_per_token: 6.0e-06
+  - model_name: zai-glm-4-7  # $0.60 in / $2.20 out per 1M tokens (via zai.glm-4.7)
     litellm_params:
       model: bedrock/zai.glm-4.7
       aws_region_name: us-east-1
-  - model_name: zai-glm-4-7-flash
+    model_info:
+      input_cost_per_token: 6.0e-07
+      output_cost_per_token: 2.2e-06
+  - model_name: zai-glm-4-7-flash  # $0.07 in / $0.40 out per 1M tokens (via zai.glm-4.7-flash)
     litellm_params:
       model: bedrock/zai.glm-4.7-flash
       aws_region_name: us-east-1
-  - model_name: zai-glm-5
+    model_info:
+      input_cost_per_token: 7.0e-08
+      output_cost_per_token: 4.0e-07
+  - model_name: zai-glm-5  # $1.00 in / $3.20 out per 1M tokens (via zai.glm-5)
     litellm_params:
       model: bedrock/zai.glm-5
       aws_region_name: us-east-1
-  - model_name: xai-grok-4-6
+    model_info:
+      input_cost_per_token: 1.0e-06
+      output_cost_per_token: 3.2e-06
+  - model_name: xai-grok-4-6  # $1.25 in / $2.50 out per 1M tokens (via xai/grok-4)
     litellm_params:
       model: bedrock/xai.grok-4.6
       aws_region_name: us-east-1
-
-  # ── Cross-Region / Global Inference Profiles (recommended for Claude/OpenAI) ──
-  - model_name: global-amazon-nova-2-lite-v1-0
+    model_info:
+      input_cost_per_token: 1.25e-06
+      output_cost_per_token: 2.5e-06
+      cache_read_input_token_cost: 2.0e-07
+  - model_name: global-amazon-nova-2-lite-v1-0  # $0.30 in / $2.50 out per 1M tokens (via global.amazon.nova-2-lite-v1:0)
     litellm_params:
       model: bedrock/global.amazon.nova-2-lite-v1:0
       aws_region_name: us-east-1
-  - model_name: global-anthropic-claude-fable-5
+    model_info:
+      input_cost_per_token: 3.0e-07
+      output_cost_per_token: 2.5e-06
+      cache_read_input_token_cost: 7.5e-08
+  - model_name: global-anthropic-claude-fable-5  # $10.00 in / $50.00 out per 1M tokens (via global.anthropic.claude-fable-5)
     litellm_params:
       model: bedrock/global.anthropic.claude-fable-5
       aws_region_name: us-east-1
-  - model_name: global-anthropic-claude-fable-5-1
+    model_info:
+      input_cost_per_token: 1.0e-05
+      output_cost_per_token: 5.0e-05
+      cache_creation_input_token_cost: 1.25e-05
+      cache_read_input_token_cost: 1.0e-06
+  - model_name: global-anthropic-claude-fable-5-1  # $10.00 in / $50.00 out per 1M tokens (via global.anthropic.claude-fable-5-1)
     litellm_params:
       model: bedrock/global.anthropic.claude-fable-5-1
       aws_region_name: us-east-1
-  - model_name: global-anthropic-claude-haiku-4-5-20251001-v1-0
+    model_info:
+      input_cost_per_token: 1.0e-05
+      output_cost_per_token: 5.0e-05
+      cache_creation_input_token_cost: 1.25e-05
+      cache_read_input_token_cost: 2.5e-07
+  - model_name: global-anthropic-claude-haiku-4-5-20251001-v1-0  # $1.00 in / $5.00 out per 1M tokens (via global.anthropic.claude-haiku-4-5-20251001-v1:0)
     litellm_params:
       model: bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0
       aws_region_name: us-east-1
-  - model_name: global-anthropic-claude-opus-4-5-20251101-v1-0
+    model_info:
+      input_cost_per_token: 1.0e-06
+      output_cost_per_token: 5.0e-06
+      cache_creation_input_token_cost: 1.25e-06
+      cache_read_input_token_cost: 1.0e-07
+  - model_name: global-anthropic-claude-opus-4-5-20251101-v1-0  # $5.00 in / $25.00 out per 1M tokens (via global.anthropic.claude-opus-4-5-20251101-v1:0)
     litellm_params:
       model: bedrock/global.anthropic.claude-opus-4-5-20251101-v1:0
       aws_region_name: us-east-1
-  - model_name: global-anthropic-claude-opus-4-6-v1
+    model_info:
+      input_cost_per_token: 5.0e-06
+      output_cost_per_token: 2.5e-05
+      cache_creation_input_token_cost: 6.25e-06
+      cache_read_input_token_cost: 5.0e-07
+  - model_name: global-anthropic-claude-opus-4-6-v1  # $5.00 in / $25.00 out per 1M tokens (via global.anthropic.claude-opus-4-6-v1)
     litellm_params:
       model: bedrock/global.anthropic.claude-opus-4-6-v1
       aws_region_name: us-east-1
-  - model_name: global-anthropic-claude-opus-4-7
+    model_info:
+      input_cost_per_token: 5.0e-06
+      output_cost_per_token: 2.5e-05
+      cache_creation_input_token_cost: 6.25e-06
+      cache_read_input_token_cost: 5.0e-07
+  - model_name: global-anthropic-claude-opus-4-7  # $5.00 in / $25.00 out per 1M tokens (via global.anthropic.claude-opus-4-7)
     litellm_params:
       model: bedrock/global.anthropic.claude-opus-4-7
       aws_region_name: us-east-1
-  - model_name: global-anthropic-claude-opus-4-8
+    model_info:
+      input_cost_per_token: 5.0e-06
+      output_cost_per_token: 2.5e-05
+      cache_creation_input_token_cost: 6.25e-06
+      cache_read_input_token_cost: 5.0e-07
+  - model_name: global-anthropic-claude-opus-4-8  # $5.00 in / $25.00 out per 1M tokens (via global.anthropic.claude-opus-4-8)
     litellm_params:
       model: bedrock/global.anthropic.claude-opus-4-8
       aws_region_name: us-east-1
-  - model_name: global-anthropic-claude-opus-5
+    model_info:
+      input_cost_per_token: 5.0e-06
+      output_cost_per_token: 2.5e-05
+      cache_creation_input_token_cost: 6.25e-06
+      cache_read_input_token_cost: 5.0e-07
+  - model_name: global-anthropic-claude-opus-5  # $5.00 in / $25.00 out per 1M tokens (via global.anthropic.claude-opus-5)
     litellm_params:
       model: bedrock/global.anthropic.claude-opus-5
       aws_region_name: us-east-1
-  - model_name: global-anthropic-claude-sonnet-4-20250514-v1-0
+    model_info:
+      input_cost_per_token: 5.0e-06
+      output_cost_per_token: 2.5e-05
+      cache_creation_input_token_cost: 6.25e-06
+      cache_read_input_token_cost: 5.0e-07
+  - model_name: global-anthropic-claude-sonnet-4-20250514-v1-0  # $3.00 in / $15.00 out per 1M tokens (via global.anthropic.claude-sonnet-4-20250514-v1:0)
     litellm_params:
       model: bedrock/global.anthropic.claude-sonnet-4-20250514-v1:0
       aws_region_name: us-east-1
-  - model_name: global-anthropic-claude-sonnet-4-5-20250929-v1-0
+    model_info:
+      input_cost_per_token: 3.0e-06
+      output_cost_per_token: 1.5e-05
+      cache_creation_input_token_cost: 3.75e-06
+      cache_read_input_token_cost: 3.0e-07
+  - model_name: global-anthropic-claude-sonnet-4-5-20250929-v1-0  # $3.00 in / $15.00 out per 1M tokens (via global.anthropic.claude-sonnet-4-5-20250929-v1:0)
     litellm_params:
       model: bedrock/global.anthropic.claude-sonnet-4-5-20250929-v1:0
       aws_region_name: us-east-1
-  - model_name: global-anthropic-claude-sonnet-4-6
+    model_info:
+      input_cost_per_token: 3.0e-06
+      output_cost_per_token: 1.5e-05
+      cache_creation_input_token_cost: 3.75e-06
+      cache_read_input_token_cost: 3.0e-07
+  - model_name: global-anthropic-claude-sonnet-4-6  # $3.00 in / $15.00 out per 1M tokens (via global.anthropic.claude-sonnet-4-6)
     litellm_params:
       model: bedrock/global.anthropic.claude-sonnet-4-6
       aws_region_name: us-east-1
-  - model_name: global-anthropic-claude-sonnet-5
+    model_info:
+      input_cost_per_token: 3.0e-06
+      output_cost_per_token: 1.5e-05
+      cache_creation_input_token_cost: 3.75e-06
+      cache_read_input_token_cost: 3.0e-07
+  - model_name: global-anthropic-claude-sonnet-5  # $2.00 in / $10.00 out per 1M tokens (via global.anthropic.claude-sonnet-5)
     litellm_params:
       model: bedrock/global.anthropic.claude-sonnet-5
       aws_region_name: us-east-1
-  - model_name: global-cohere-embed-v4-0
+    model_info:
+      input_cost_per_token: 2.0e-06
+      output_cost_per_token: 1.0e-05
+      cache_creation_input_token_cost: 2.5e-06
+      cache_read_input_token_cost: 2.0e-07
+  - model_name: global-cohere-embed-v4-0  # $0.12 in / $0.00 out per 1M tokens (via manual fallback global-cohere-embed-v4-0)
     litellm_params:
       model: bedrock/global.cohere.embed-v4:0
       aws_region_name: us-east-1
-  - model_name: global-openai-gpt-5-6-luna
+    model_info:
+      input_cost_per_token: 1.2e-07
+      output_cost_per_token: 0.0
+  - model_name: global-openai-gpt-5-6-luna  # $0.20 in / $1.20 out per 1M tokens (via global.openai.gpt-5.6-luna)
     litellm_params:
       model: bedrock/global.openai.gpt-5.6-luna
       aws_region_name: us-east-1
-  - model_name: global-openai-gpt-5-6-sol
+    model_info:
+      input_cost_per_token: 2.0e-07
+      output_cost_per_token: 1.2e-06
+      cache_creation_input_token_cost: 2.5e-07
+      cache_read_input_token_cost: 2.0e-08
+  - model_name: global-openai-gpt-5-6-sol  # $4.00 in / $20.00 out per 1M tokens (via global.openai.gpt-5.6-sol)
     litellm_params:
       model: bedrock/global.openai.gpt-5.6-sol
       aws_region_name: us-east-1
-  - model_name: global-openai-gpt-5-6-terra
+    model_info:
+      input_cost_per_token: 4.0e-06
+      output_cost_per_token: 2.0e-05
+      cache_creation_input_token_cost: 5.0e-06
+      cache_read_input_token_cost: 4.0e-07
+  - model_name: global-openai-gpt-5-6-terra  # $2.00 in / $12.00 out per 1M tokens (via global.openai.gpt-5.6-terra)
     litellm_params:
       model: bedrock/global.openai.gpt-5.6-terra
       aws_region_name: us-east-1
-  - model_name: global-twelvelabs-pegasus-1-2-v1-0
+    model_info:
+      input_cost_per_token: 2.0e-06
+      output_cost_per_token: 1.2e-05
+      cache_creation_input_token_cost: 2.5e-06
+      cache_read_input_token_cost: 2.0e-07
+  - model_name: global-twelvelabs-pegasus-1-2-v1-0  # $0.00 in / $7.50 out per 1M tokens (via twelvelabs.pegasus-1-2-v1:0)
     litellm_params:
       model: bedrock/global.twelvelabs.pegasus-1-2-v1:0
       aws_region_name: us-east-1
-  - model_name: global-xai-grok-4-6
+    model_info:
+      input_cost_per_token: 0
+      output_cost_per_token: 7.5e-06
+  - model_name: global-xai-grok-4-6  # $2.00 in / $6.00 out per 1M tokens (via global.xai.grok-4.6)
     litellm_params:
       model: bedrock/global.xai.grok-4.6
       aws_region_name: us-east-1
-  - model_name: us-amazon-nova-2-lite-v1-0
+    model_info:
+      input_cost_per_token: 2.0e-06
+      output_cost_per_token: 6.0e-06
+      cache_read_input_token_cost: 5.0e-07
+  - model_name: us-amazon-nova-2-lite-v1-0  # $0.33 in / $2.75 out per 1M tokens (via us.amazon.nova-2-lite-v1:0)
     litellm_params:
       model: bedrock/us.amazon.nova-2-lite-v1:0
       aws_region_name: us-east-1
-  - model_name: us-amazon-nova-lite-v1-0
+    model_info:
+      input_cost_per_token: 3.3e-07
+      output_cost_per_token: 2.75e-06
+      cache_read_input_token_cost: 8.25e-08
+  - model_name: us-amazon-nova-lite-v1-0  # $0.06 in / $0.24 out per 1M tokens (via us.amazon.nova-lite-v1:0)
     litellm_params:
       model: bedrock/us.amazon.nova-lite-v1:0
       aws_region_name: us-east-1
-  - model_name: us-amazon-nova-micro-v1-0
+    model_info:
+      input_cost_per_token: 6.0e-08
+      output_cost_per_token: 2.4e-07
+  - model_name: us-amazon-nova-micro-v1-0  # $0.04 in / $0.14 out per 1M tokens (via us.amazon.nova-micro-v1:0)
     litellm_params:
       model: bedrock/us.amazon.nova-micro-v1:0
       aws_region_name: us-east-1
-  - model_name: us-amazon-nova-premier-v1-0
+    model_info:
+      input_cost_per_token: 3.5e-08
+      output_cost_per_token: 1.4e-07
+  - model_name: us-amazon-nova-premier-v1-0  # $2.50 in / $12.50 out per 1M tokens (via us.amazon.nova-premier-v1:0)
     litellm_params:
       model: bedrock/us.amazon.nova-premier-v1:0
       aws_region_name: us-east-1
-  - model_name: us-amazon-nova-pro-v1-0
+    model_info:
+      input_cost_per_token: 2.5e-06
+      output_cost_per_token: 1.25e-05
+  - model_name: us-amazon-nova-pro-v1-0  # $0.80 in / $3.20 out per 1M tokens (via us.amazon.nova-pro-v1:0)
     litellm_params:
       model: bedrock/us.amazon.nova-pro-v1:0
       aws_region_name: us-east-1
-  - model_name: us-anthropic-claude-3-haiku-20240307-v1-0
+    model_info:
+      input_cost_per_token: 8.0e-07
+      output_cost_per_token: 3.2e-06
+  - model_name: us-anthropic-claude-3-haiku-20240307-v1-0  # $0.25 in / $1.25 out per 1M tokens (via us.anthropic.claude-3-haiku-20240307-v1:0)
     litellm_params:
       model: bedrock/us.anthropic.claude-3-haiku-20240307-v1:0
       aws_region_name: us-east-1
-  - model_name: us-anthropic-claude-3-sonnet-20240229-v1-0
+    model_info:
+      input_cost_per_token: 2.5e-07
+      output_cost_per_token: 1.25e-06
+      cache_creation_input_token_cost: 3.125e-07
+      cache_read_input_token_cost: 2.5e-08
+  - model_name: us-anthropic-claude-3-sonnet-20240229-v1-0  # $3.00 in / $15.00 out per 1M tokens (via us.anthropic.claude-3-sonnet-20240229-v1:0)
     litellm_params:
       model: bedrock/us.anthropic.claude-3-sonnet-20240229-v1:0
       aws_region_name: us-east-1
-  - model_name: us-anthropic-claude-fable-5
+    model_info:
+      input_cost_per_token: 3.0e-06
+      output_cost_per_token: 1.5e-05
+      cache_creation_input_token_cost: 3.75e-06
+      cache_read_input_token_cost: 3.0e-07
+  - model_name: us-anthropic-claude-fable-5  # $11.00 in / $55.00 out per 1M tokens (via us.anthropic.claude-fable-5)
     litellm_params:
       model: bedrock/us.anthropic.claude-fable-5
       aws_region_name: us-east-1
-  - model_name: us-anthropic-claude-fable-5-1
+    model_info:
+      input_cost_per_token: 1.1e-05
+      output_cost_per_token: 5.5e-05
+      cache_creation_input_token_cost: 1.375e-05
+      cache_read_input_token_cost: 1.1e-06
+  - model_name: us-anthropic-claude-fable-5-1  # $11.00 in / $55.00 out per 1M tokens (via us.anthropic.claude-fable-5-1)
     litellm_params:
       model: bedrock/us.anthropic.claude-fable-5-1
       aws_region_name: us-east-1
-  - model_name: us-anthropic-claude-haiku-4-5-20251001-v1-0
+    model_info:
+      input_cost_per_token: 1.1e-05
+      output_cost_per_token: 5.5e-05
+      cache_creation_input_token_cost: 1.375e-05
+      cache_read_input_token_cost: 2.75e-07
+  - model_name: us-anthropic-claude-haiku-4-5-20251001-v1-0  # $1.10 in / $5.50 out per 1M tokens (via us.anthropic.claude-haiku-4-5-20251001-v1:0)
     litellm_params:
       model: bedrock/us.anthropic.claude-haiku-4-5-20251001-v1:0
       aws_region_name: us-east-1
-  - model_name: us-anthropic-claude-opus-4-1-20250805-v1-0
+    model_info:
+      input_cost_per_token: 1.1e-06
+      output_cost_per_token: 5.5e-06
+      cache_creation_input_token_cost: 1.375e-06
+      cache_read_input_token_cost: 1.1e-07
+  - model_name: us-anthropic-claude-opus-4-1-20250805-v1-0  # $15.00 in / $75.00 out per 1M tokens (via us.anthropic.claude-opus-4-1-20250805-v1:0)
     litellm_params:
       model: bedrock/us.anthropic.claude-opus-4-1-20250805-v1:0
       aws_region_name: us-east-1
-  - model_name: us-anthropic-claude-opus-4-5-20251101-v1-0
+    model_info:
+      input_cost_per_token: 1.5e-05
+      output_cost_per_token: 7.5e-05
+      cache_creation_input_token_cost: 1.875e-05
+      cache_read_input_token_cost: 1.5e-06
+  - model_name: us-anthropic-claude-opus-4-5-20251101-v1-0  # $5.50 in / $27.50 out per 1M tokens (via us.anthropic.claude-opus-4-5-20251101-v1:0)
     litellm_params:
       model: bedrock/us.anthropic.claude-opus-4-5-20251101-v1:0
       aws_region_name: us-east-1
-  - model_name: us-anthropic-claude-opus-4-6-v1
+    model_info:
+      input_cost_per_token: 5.5e-06
+      output_cost_per_token: 2.75e-05
+      cache_creation_input_token_cost: 6.875e-06
+      cache_read_input_token_cost: 5.5e-07
+  - model_name: us-anthropic-claude-opus-4-6-v1  # $5.50 in / $27.50 out per 1M tokens (via us.anthropic.claude-opus-4-6-v1)
     litellm_params:
       model: bedrock/us.anthropic.claude-opus-4-6-v1
       aws_region_name: us-east-1
-  - model_name: us-anthropic-claude-opus-4-7
+    model_info:
+      input_cost_per_token: 5.5e-06
+      output_cost_per_token: 2.75e-05
+      cache_creation_input_token_cost: 6.875e-06
+      cache_read_input_token_cost: 5.5e-07
+  - model_name: us-anthropic-claude-opus-4-7  # $5.50 in / $27.50 out per 1M tokens (via us.anthropic.claude-opus-4-7)
     litellm_params:
       model: bedrock/us.anthropic.claude-opus-4-7
       aws_region_name: us-east-1
-  - model_name: us-anthropic-claude-opus-4-8
+    model_info:
+      input_cost_per_token: 5.5e-06
+      output_cost_per_token: 2.75e-05
+      cache_creation_input_token_cost: 6.875e-06
+      cache_read_input_token_cost: 5.5e-07
+  - model_name: us-anthropic-claude-opus-4-8  # $5.50 in / $27.50 out per 1M tokens (via us.anthropic.claude-opus-4-8)
     litellm_params:
       model: bedrock/us.anthropic.claude-opus-4-8
       aws_region_name: us-east-1
-  - model_name: us-anthropic-claude-opus-5
+    model_info:
+      input_cost_per_token: 5.5e-06
+      output_cost_per_token: 2.75e-05
+      cache_creation_input_token_cost: 6.875e-06
+      cache_read_input_token_cost: 5.5e-07
+  - model_name: us-anthropic-claude-opus-5  # $5.50 in / $27.50 out per 1M tokens (via us.anthropic.claude-opus-5)
     litellm_params:
       model: bedrock/us.anthropic.claude-opus-5
       aws_region_name: us-east-1
-  - model_name: us-anthropic-claude-sonnet-4-20250514-v1-0
+    model_info:
+      input_cost_per_token: 5.5e-06
+      output_cost_per_token: 2.75e-05
+      cache_creation_input_token_cost: 6.875e-06
+      cache_read_input_token_cost: 5.5e-07
+  - model_name: us-anthropic-claude-sonnet-4-20250514-v1-0  # $3.00 in / $15.00 out per 1M tokens (via us.anthropic.claude-sonnet-4-20250514-v1:0)
     litellm_params:
       model: bedrock/us.anthropic.claude-sonnet-4-20250514-v1:0
       aws_region_name: us-east-1
-  - model_name: us-anthropic-claude-sonnet-4-5-20250929-v1-0
+    model_info:
+      input_cost_per_token: 3.0e-06
+      output_cost_per_token: 1.5e-05
+      cache_creation_input_token_cost: 3.75e-06
+      cache_read_input_token_cost: 3.0e-07
+  - model_name: us-anthropic-claude-sonnet-4-5-20250929-v1-0  # $3.30 in / $16.50 out per 1M tokens (via us.anthropic.claude-sonnet-4-5-20250929-v1:0)
     litellm_params:
       model: bedrock/us.anthropic.claude-sonnet-4-5-20250929-v1:0
       aws_region_name: us-east-1
-  - model_name: us-anthropic-claude-sonnet-4-6
+    model_info:
+      input_cost_per_token: 3.3e-06
+      output_cost_per_token: 1.65e-05
+      cache_creation_input_token_cost: 4.125e-06
+      cache_read_input_token_cost: 3.3e-07
+  - model_name: us-anthropic-claude-sonnet-4-6  # $3.30 in / $16.50 out per 1M tokens (via us.anthropic.claude-sonnet-4-6)
     litellm_params:
       model: bedrock/us.anthropic.claude-sonnet-4-6
       aws_region_name: us-east-1
-  - model_name: us-anthropic-claude-sonnet-5
+    model_info:
+      input_cost_per_token: 3.3e-06
+      output_cost_per_token: 1.65e-05
+      cache_creation_input_token_cost: 4.125e-06
+      cache_read_input_token_cost: 3.3e-07
+  - model_name: us-anthropic-claude-sonnet-5  # $2.20 in / $11.00 out per 1M tokens (via us.anthropic.claude-sonnet-5)
     litellm_params:
       model: bedrock/us.anthropic.claude-sonnet-5
       aws_region_name: us-east-1
-  - model_name: us-cohere-embed-v4-0
+    model_info:
+      input_cost_per_token: 2.2e-06
+      output_cost_per_token: 1.1e-05
+      cache_creation_input_token_cost: 2.75e-06
+      cache_read_input_token_cost: 2.2e-07
+  - model_name: us-cohere-embed-v4-0  # $0.12 in / $0.00 out per 1M tokens (via manual fallback us-cohere-embed-v4-0)
     litellm_params:
       model: bedrock/us.cohere.embed-v4:0
       aws_region_name: us-east-1
-  - model_name: us-deepseek-r1-v1-0
+    model_info:
+      input_cost_per_token: 1.2e-07
+      output_cost_per_token: 0.0
+  - model_name: us-deepseek-r1-v1-0  # $1.35 in / $5.40 out per 1M tokens (via us.deepseek.r1-v1:0)
     litellm_params:
       model: bedrock/us.deepseek.r1-v1:0
       aws_region_name: us-east-1
-  - model_name: us-meta-llama3-1-70b-instruct-v1-0
+    model_info:
+      input_cost_per_token: 1.35e-06
+      output_cost_per_token: 5.4e-06
+  - model_name: us-meta-llama3-1-70b-instruct-v1-0  # $0.99 in / $0.99 out per 1M tokens (via us.meta.llama3-1-70b-instruct-v1:0)
     litellm_params:
       model: bedrock/us.meta.llama3-1-70b-instruct-v1:0
       aws_region_name: us-east-1
-  - model_name: us-meta-llama3-1-8b-instruct-v1-0
+    model_info:
+      input_cost_per_token: 9.9e-07
+      output_cost_per_token: 9.9e-07
+  - model_name: us-meta-llama3-1-8b-instruct-v1-0  # $0.22 in / $0.22 out per 1M tokens (via us.meta.llama3-1-8b-instruct-v1:0)
     litellm_params:
       model: bedrock/us.meta.llama3-1-8b-instruct-v1:0
       aws_region_name: us-east-1
-  - model_name: us-meta-llama3-2-11b-instruct-v1-0
+    model_info:
+      input_cost_per_token: 2.2e-07
+      output_cost_per_token: 2.2e-07
+  - model_name: us-meta-llama3-2-11b-instruct-v1-0  # $0.35 in / $0.35 out per 1M tokens (via us.meta.llama3-2-11b-instruct-v1:0)
     litellm_params:
       model: bedrock/us.meta.llama3-2-11b-instruct-v1:0
       aws_region_name: us-east-1
-  - model_name: us-meta-llama3-2-1b-instruct-v1-0
+    model_info:
+      input_cost_per_token: 3.5e-07
+      output_cost_per_token: 3.5e-07
+  - model_name: us-meta-llama3-2-1b-instruct-v1-0  # $0.10 in / $0.10 out per 1M tokens (via us.meta.llama3-2-1b-instruct-v1:0)
     litellm_params:
       model: bedrock/us.meta.llama3-2-1b-instruct-v1:0
       aws_region_name: us-east-1
-  - model_name: us-meta-llama3-2-3b-instruct-v1-0
+    model_info:
+      input_cost_per_token: 1.0e-07
+      output_cost_per_token: 1.0e-07
+  - model_name: us-meta-llama3-2-3b-instruct-v1-0  # $0.15 in / $0.15 out per 1M tokens (via us.meta.llama3-2-3b-instruct-v1:0)
     litellm_params:
       model: bedrock/us.meta.llama3-2-3b-instruct-v1:0
       aws_region_name: us-east-1
-  - model_name: us-meta-llama3-2-90b-instruct-v1-0
+    model_info:
+      input_cost_per_token: 1.5e-07
+      output_cost_per_token: 1.5e-07
+  - model_name: us-meta-llama3-2-90b-instruct-v1-0  # $2.00 in / $2.00 out per 1M tokens (via us.meta.llama3-2-90b-instruct-v1:0)
     litellm_params:
       model: bedrock/us.meta.llama3-2-90b-instruct-v1:0
       aws_region_name: us-east-1
-  - model_name: us-meta-llama3-3-70b-instruct-v1-0
+    model_info:
+      input_cost_per_token: 2.0e-06
+      output_cost_per_token: 2.0e-06
+  - model_name: us-meta-llama3-3-70b-instruct-v1-0  # $0.72 in / $0.72 out per 1M tokens (via us.meta.llama3-3-70b-instruct-v1:0)
     litellm_params:
       model: bedrock/us.meta.llama3-3-70b-instruct-v1:0
       aws_region_name: us-east-1
-  - model_name: us-meta-llama4-maverick-17b-instruct-v1-0
+    model_info:
+      input_cost_per_token: 7.2e-07
+      output_cost_per_token: 7.2e-07
+  - model_name: us-meta-llama4-maverick-17b-instruct-v1-0  # $0.24 in / $0.97 out per 1M tokens (via us.meta.llama4-maverick-17b-instruct-v1:0)
     litellm_params:
       model: bedrock/us.meta.llama4-maverick-17b-instruct-v1:0
       aws_region_name: us-east-1
-  - model_name: us-meta-llama4-scout-17b-instruct-v1-0
+    model_info:
+      input_cost_per_token: 2.4e-07
+      output_cost_per_token: 9.7e-07
+  - model_name: us-meta-llama4-scout-17b-instruct-v1-0  # $0.17 in / $0.66 out per 1M tokens (via us.meta.llama4-scout-17b-instruct-v1:0)
     litellm_params:
       model: bedrock/us.meta.llama4-scout-17b-instruct-v1:0
       aws_region_name: us-east-1
-  - model_name: us-mistral-pixtral-large-2502-v1-0
+    model_info:
+      input_cost_per_token: 1.7e-07
+      output_cost_per_token: 6.6e-07
+  - model_name: us-mistral-pixtral-large-2502-v1-0  # $2.00 in / $6.00 out per 1M tokens (via us.mistral.pixtral-large-2502-v1:0)
     litellm_params:
       model: bedrock/us.mistral.pixtral-large-2502-v1:0
       aws_region_name: us-east-1
-  - model_name: us-openai-gpt-5-6-luna
+    model_info:
+      input_cost_per_token: 2.0e-06
+      output_cost_per_token: 6.0e-06
+  - model_name: us-openai-gpt-5-6-luna  # $0.22 in / $1.32 out per 1M tokens (via us.openai.gpt-5.6-luna)
     litellm_params:
       model: bedrock/us.openai.gpt-5.6-luna
       aws_region_name: us-east-1
-  - model_name: us-openai-gpt-5-6-sol
+    model_info:
+      input_cost_per_token: 2.2e-07
+      output_cost_per_token: 1.32e-06
+      cache_creation_input_token_cost: 2.75e-07
+      cache_read_input_token_cost: 2.2e-08
+  - model_name: us-openai-gpt-5-6-sol  # $4.40 in / $22.00 out per 1M tokens (via us.openai.gpt-5.6-sol)
     litellm_params:
       model: bedrock/us.openai.gpt-5.6-sol
       aws_region_name: us-east-1
-  - model_name: us-openai-gpt-5-6-terra
+    model_info:
+      input_cost_per_token: 4.4e-06
+      output_cost_per_token: 2.2e-05
+      cache_creation_input_token_cost: 5.5e-06
+      cache_read_input_token_cost: 4.4e-07
+  - model_name: us-openai-gpt-5-6-terra  # $2.20 in / $13.20 out per 1M tokens (via us.openai.gpt-5.6-terra)
     litellm_params:
       model: bedrock/us.openai.gpt-5.6-terra
       aws_region_name: us-east-1
-  - model_name: us-stability-stable-conservative-upscale-v1-0
+    model_info:
+      input_cost_per_token: 2.2e-06
+      output_cost_per_token: 1.32e-05
+      cache_creation_input_token_cost: 2.75e-06
+      cache_read_input_token_cost: 2.2e-07
+  - model_name: us-stability-stable-conservative-upscale-v1-0  # $0.4000/image (via stability.stable-conservative-upscale-v1:0)
     litellm_params:
       model: bedrock/us.stability.stable-conservative-upscale-v1:0
       aws_region_name: us-east-1
-  - model_name: us-stability-stable-creative-upscale-v1-0
+    model_info:
+      output_cost_per_image: 0.4
+  - model_name: us-stability-stable-creative-upscale-v1-0  # $0.6000/image (via stability.stable-creative-upscale-v1:0)
     litellm_params:
       model: bedrock/us.stability.stable-creative-upscale-v1:0
       aws_region_name: us-east-1
-  - model_name: us-stability-stable-fast-upscale-v1-0
+    model_info:
+      output_cost_per_image: 0.6
+  - model_name: us-stability-stable-fast-upscale-v1-0  # $0.0300/image (via stability.stable-fast-upscale-v1:0)
     litellm_params:
       model: bedrock/us.stability.stable-fast-upscale-v1:0
       aws_region_name: us-east-1
-  - model_name: us-stability-stable-image-control-sketch-v1-0
+    model_info:
+      output_cost_per_image: 0.03
+  - model_name: us-stability-stable-image-control-sketch-v1-0  # $0.0700/image (via stability.stable-image-control-sketch-v1:0)
     litellm_params:
       model: bedrock/us.stability.stable-image-control-sketch-v1:0
       aws_region_name: us-east-1
-  - model_name: us-stability-stable-image-control-structure-v1-0
+    model_info:
+      output_cost_per_image: 0.07
+  - model_name: us-stability-stable-image-control-structure-v1-0  # $0.0700/image (via stability.stable-image-control-structure-v1:0)
     litellm_params:
       model: bedrock/us.stability.stable-image-control-structure-v1:0
       aws_region_name: us-east-1
-  - model_name: us-stability-stable-image-erase-object-v1-0
+    model_info:
+      output_cost_per_image: 0.07
+  - model_name: us-stability-stable-image-erase-object-v1-0  # $0.0700/image (via stability.stable-image-erase-object-v1:0)
     litellm_params:
       model: bedrock/us.stability.stable-image-erase-object-v1:0
       aws_region_name: us-east-1
-  - model_name: us-stability-stable-image-inpaint-v1-0
+    model_info:
+      output_cost_per_image: 0.07
+  - model_name: us-stability-stable-image-inpaint-v1-0  # $0.0700/image (via stability.stable-image-inpaint-v1:0)
     litellm_params:
       model: bedrock/us.stability.stable-image-inpaint-v1:0
       aws_region_name: us-east-1
-  - model_name: us-stability-stable-image-remove-background-v1-0
+    model_info:
+      output_cost_per_image: 0.07
+  - model_name: us-stability-stable-image-remove-background-v1-0  # $0.0700/image (via stability.stable-image-remove-background-v1:0)
     litellm_params:
       model: bedrock/us.stability.stable-image-remove-background-v1:0
       aws_region_name: us-east-1
-  - model_name: us-stability-stable-image-search-recolor-v1-0
+    model_info:
+      output_cost_per_image: 0.07
+  - model_name: us-stability-stable-image-search-recolor-v1-0  # $0.0700/image (via stability.stable-image-search-recolor-v1:0)
     litellm_params:
       model: bedrock/us.stability.stable-image-search-recolor-v1:0
       aws_region_name: us-east-1
-  - model_name: us-stability-stable-image-search-replace-v1-0
+    model_info:
+      output_cost_per_image: 0.07
+  - model_name: us-stability-stable-image-search-replace-v1-0  # $0.0700/image (via stability.stable-image-search-replace-v1:0)
     litellm_params:
       model: bedrock/us.stability.stable-image-search-replace-v1:0
       aws_region_name: us-east-1
-  - model_name: us-stability-stable-image-style-guide-v1-0
+    model_info:
+      output_cost_per_image: 0.07
+  - model_name: us-stability-stable-image-style-guide-v1-0  # $0.0700/image (via stability.stable-image-style-guide-v1:0)
     litellm_params:
       model: bedrock/us.stability.stable-image-style-guide-v1:0
       aws_region_name: us-east-1
-  - model_name: us-stability-stable-outpaint-v1-0
+    model_info:
+      output_cost_per_image: 0.07
+  - model_name: us-stability-stable-outpaint-v1-0  # $0.0600/image (via stability.stable-outpaint-v1:0)
     litellm_params:
       model: bedrock/us.stability.stable-outpaint-v1:0
       aws_region_name: us-east-1
-  - model_name: us-stability-stable-style-transfer-v1-0
+    model_info:
+      output_cost_per_image: 0.06
+  - model_name: us-stability-stable-style-transfer-v1-0  # $0.0800/image (via stability.stable-style-transfer-v1:0)
     litellm_params:
       model: bedrock/us.stability.stable-style-transfer-v1:0
       aws_region_name: us-east-1
-  - model_name: us-twelvelabs-marengo-embed-2-7-v1-0
+    model_info:
+      output_cost_per_image: 0.08
+  - model_name: us-twelvelabs-marengo-embed-2-7-v1-0  # $70.00 in / $0.00 out per 1M tokens (via us.twelvelabs.marengo-embed-2-7-v1:0)
     litellm_params:
       model: bedrock/us.twelvelabs.marengo-embed-2-7-v1:0
       aws_region_name: us-east-1
-  - model_name: us-twelvelabs-marengo-embed-3-0-v1-0
+    model_info:
+      input_cost_per_token: 7.0e-05
+      output_cost_per_token: 0
+  - model_name: us-twelvelabs-marengo-embed-3-0-v1-0  # $0.10 in / $0.00 out per 1M tokens (via amazon.titan-embed-text-v1)
     litellm_params:
       model: bedrock/us.twelvelabs.marengo-embed-3-0-v1:0
       aws_region_name: us-east-1
-  - model_name: us-twelvelabs-pegasus-1-2-v1-0
+    model_info:
+      input_cost_per_token: 1.0e-07
+      output_cost_per_token: 0
+  - model_name: us-twelvelabs-pegasus-1-2-v1-0  # $0.00 in / $7.50 out per 1M tokens (via us.twelvelabs.pegasus-1-2-v1:0)
     litellm_params:
       model: bedrock/us.twelvelabs.pegasus-1-2-v1:0
       aws_region_name: us-east-1
-  - model_name: us-writer-palmyra-x4-v1-0
+    model_info:
+      input_cost_per_token: 0
+      output_cost_per_token: 7.5e-06
+  - model_name: us-writer-palmyra-x4-v1-0  # $2.50 in / $10.00 out per 1M tokens (via us.writer.palmyra-x4-v1:0)
     litellm_params:
       model: bedrock/us.writer.palmyra-x4-v1:0
       aws_region_name: us-east-1
-  - model_name: us-writer-palmyra-x5-v1-0
+    model_info:
+      input_cost_per_token: 2.5e-06
+      output_cost_per_token: 1.0e-05
+  - model_name: us-writer-palmyra-x5-v1-0  # $0.60 in / $6.00 out per 1M tokens (via us.writer.palmyra-x5-v1:0)
     litellm_params:
       model: bedrock/us.writer.palmyra-x5-v1:0
       aws_region_name: us-east-1
-  - model_name: us-xai-grok-4-6
+    model_info:
+      input_cost_per_token: 6.0e-07
+      output_cost_per_token: 6.0e-06
+  - model_name: us-xai-grok-4-6  # $2.20 in / $6.60 out per 1M tokens (via us.xai.grok-4.6)
     litellm_params:
       model: bedrock/us.xai.grok-4.6
       aws_region_name: us-east-1
-
-  # ── Embeddings ──
-  - model_name: amazon-nova-2-multimodal-embeddings-v1-0
+    model_info:
+      input_cost_per_token: 2.2e-06
+      output_cost_per_token: 6.6e-06
+      cache_read_input_token_cost: 5.5e-07
+  - model_name: amazon-nova-2-multimodal-embeddings-v1-0  # $0.14 in / $0.00 out per 1M tokens (via amazon.nova-2-multimodal-embeddings-v1:0)
     litellm_params:
       model: bedrock/amazon.nova-2-multimodal-embeddings-v1:0
       aws_region_name: us-east-1
-  - model_name: amazon-titan-embed-g1-text-02
+    model_info:
+      input_cost_per_token: 1.35e-07
+      output_cost_per_token: 0
+  - model_name: amazon-titan-embed-g1-text-02  # $0.10 in / $0.00 out per 1M tokens (via amazon.titan-embed-g1-text-02)
     litellm_params:
       model: bedrock/amazon.titan-embed-g1-text-02
       aws_region_name: us-east-1
-  - model_name: amazon-titan-embed-image-v1
+    model_info:
+      input_cost_per_token: 1.0e-07
+      output_cost_per_token: 0
+  - model_name: amazon-titan-embed-image-v1  # $0.80 in / $0.00 out per 1M tokens (via amazon.titan-embed-image-v1)
     litellm_params:
       model: bedrock/amazon.titan-embed-image-v1
       aws_region_name: us-east-1
-  - model_name: amazon-titan-embed-image-v1-0
+    model_info:
+      input_cost_per_token: 8.0e-07
+      output_cost_per_token: 0
+  - model_name: amazon-titan-embed-image-v1-0  # $0.10 in / $0.00 out per 1M tokens (via amazon.titan-embed-text-v1)
     litellm_params:
       model: bedrock/amazon.titan-embed-image-v1:0
       aws_region_name: us-east-1
-  - model_name: amazon-titan-embed-text-v1
+    model_info:
+      input_cost_per_token: 1.0e-07
+      output_cost_per_token: 0
+  - model_name: amazon-titan-embed-text-v1  # $0.10 in / $0.00 out per 1M tokens (via amazon.titan-embed-text-v1)
     litellm_params:
       model: bedrock/amazon.titan-embed-text-v1
       aws_region_name: us-east-1
-  - model_name: amazon-titan-embed-text-v1-2-8k
+    model_info:
+      input_cost_per_token: 1.0e-07
+      output_cost_per_token: 0
+  - model_name: amazon-titan-embed-text-v1-2-8k  # $0.10 in / $0.00 out per 1M tokens (via amazon.titan-embed-text-v1)
     litellm_params:
       model: bedrock/amazon.titan-embed-text-v1:2:8k
       aws_region_name: us-east-1
-  - model_name: amazon-titan-embed-text-v2-0
+    model_info:
+      input_cost_per_token: 1.0e-07
+      output_cost_per_token: 0
+  - model_name: amazon-titan-embed-text-v2-0  # $0.02 in / $0.00 out per 1M tokens (via amazon.titan-embed-text-v2:0)
     litellm_params:
       model: bedrock/amazon.titan-embed-text-v2:0
       aws_region_name: us-east-1
-  - model_name: amazon-titan-embed-text-v2-0-8k
+    model_info:
+      input_cost_per_token: 2.0e-08
+      output_cost_per_token: 0
+  - model_name: amazon-titan-embed-text-v2-0-8k  # $0.10 in / $0.00 out per 1M tokens (via amazon.titan-embed-text-v1)
     litellm_params:
       model: bedrock/amazon.titan-embed-text-v2:0:8k
       aws_region_name: us-east-1
-  - model_name: cohere-embed-english-v3
+    model_info:
+      input_cost_per_token: 1.0e-07
+      output_cost_per_token: 0
+  - model_name: cohere-embed-english-v3  # $0.10 in / $0.00 out per 1M tokens (via cohere.embed-english-v3)
     litellm_params:
       model: bedrock/cohere.embed-english-v3
       aws_region_name: us-east-1
-  - model_name: cohere-embed-english-v3-0-512
+    model_info:
+      input_cost_per_token: 1.0e-07
+      output_cost_per_token: 0
+  - model_name: cohere-embed-english-v3-0-512  # $0.10 in / $0.00 out per 1M tokens (via manual fallback cohere-embed-english-v3-0-512)
     litellm_params:
       model: bedrock/cohere.embed-english-v3:0:512
       aws_region_name: us-east-1
-  - model_name: cohere-embed-multilingual-v3
+    model_info:
+      input_cost_per_token: 1.0e-07
+      output_cost_per_token: 0.0
+  - model_name: cohere-embed-multilingual-v3  # $0.10 in / $0.00 out per 1M tokens (via cohere.embed-multilingual-v3)
     litellm_params:
       model: bedrock/cohere.embed-multilingual-v3
       aws_region_name: us-east-1
-  - model_name: cohere-embed-multilingual-v3-0-512
+    model_info:
+      input_cost_per_token: 1.0e-07
+      output_cost_per_token: 0
+  - model_name: cohere-embed-multilingual-v3-0-512  # $0.10 in / $0.00 out per 1M tokens (via manual fallback cohere-embed-multilingual-v3-0-512)
     litellm_params:
       model: bedrock/cohere.embed-multilingual-v3:0:512
       aws_region_name: us-east-1
-  - model_name: cohere-embed-v4-0
+    model_info:
+      input_cost_per_token: 1.0e-07
+      output_cost_per_token: 0.0
+  - model_name: cohere-embed-v4-0  # $0.12 in / $0.00 out per 1M tokens (via cohere.embed-v4:0)
     litellm_params:
       model: bedrock/cohere.embed-v4:0
       aws_region_name: us-east-1
-  - model_name: twelvelabs-marengo-embed-2-7-v1-0
+    model_info:
+      input_cost_per_token: 1.2e-07
+      output_cost_per_token: 0
+  - model_name: twelvelabs-marengo-embed-2-7-v1-0  # $70.00 in / $0.00 out per 1M tokens (via twelvelabs.marengo-embed-2-7-v1:0)
     litellm_params:
       model: bedrock/twelvelabs.marengo-embed-2-7-v1:0
       aws_region_name: us-east-1
-  - model_name: twelvelabs-marengo-embed-3-0-v1-0
+    model_info:
+      input_cost_per_token: 7.0e-05
+      output_cost_per_token: 0
+  - model_name: twelvelabs-marengo-embed-3-0-v1-0  # $0.10 in / $0.00 out per 1M tokens (via amazon.titan-embed-text-v1)
     litellm_params:
       model: bedrock/twelvelabs.marengo-embed-3-0-v1:0
       aws_region_name: us-east-1
-
-  # ── Image / Video Generation ──
-  - model_name: amazon-nova-canvas-v1-0
+    model_info:
+      input_cost_per_token: 1.0e-07
+      output_cost_per_token: 0
+  - model_name: amazon-nova-canvas-v1-0  # $0.0600/image (via amazon.nova-canvas-v1:0)
     litellm_params:
       model: bedrock/amazon.nova-canvas-v1:0
       aws_region_name: us-east-1
-  - model_name: amazon-nova-reel-v1-0
+    model_info:
+      output_cost_per_image: 0.06
+  - model_name: amazon-nova-reel-v1-0  # $0.10 in / $0.00 out per 1M tokens (via amazon.titan-embed-text-v1)
     litellm_params:
       model: bedrock/amazon.nova-reel-v1:0
       aws_region_name: us-east-1
-  - model_name: amazon-nova-reel-v1-1
+    model_info:
+      input_cost_per_token: 1.0e-07
+      output_cost_per_token: 0
+  - model_name: amazon-nova-reel-v1-1  # $0.10 in / $0.00 out per 1M tokens (via amazon.titan-embed-text-v1)
     litellm_params:
       model: bedrock/amazon.nova-reel-v1:1
       aws_region_name: us-east-1
-  - model_name: stability-stable-conservative-upscale-v1-0
+    model_info:
+      input_cost_per_token: 1.0e-07
+      output_cost_per_token: 0
+  - model_name: stability-stable-conservative-upscale-v1-0  # $0.4000/image (via stability.stable-conservative-upscale-v1:0)
     litellm_params:
       model: bedrock/stability.stable-conservative-upscale-v1:0
       aws_region_name: us-east-1
-  - model_name: stability-stable-creative-upscale-v1-0
+    model_info:
+      output_cost_per_image: 0.4
+  - model_name: stability-stable-creative-upscale-v1-0  # $0.6000/image (via stability.stable-creative-upscale-v1:0)
     litellm_params:
       model: bedrock/stability.stable-creative-upscale-v1:0
       aws_region_name: us-east-1
-  - model_name: stability-stable-fast-upscale-v1-0
+    model_info:
+      output_cost_per_image: 0.6
+  - model_name: stability-stable-fast-upscale-v1-0  # $0.0300/image (via stability.stable-fast-upscale-v1:0)
     litellm_params:
       model: bedrock/stability.stable-fast-upscale-v1:0
       aws_region_name: us-east-1
-  - model_name: stability-stable-image-control-sketch-v1-0
+    model_info:
+      output_cost_per_image: 0.03
+  - model_name: stability-stable-image-control-sketch-v1-0  # $0.0700/image (via stability.stable-image-control-sketch-v1:0)
     litellm_params:
       model: bedrock/stability.stable-image-control-sketch-v1:0
       aws_region_name: us-east-1
-  - model_name: stability-stable-image-control-structure-v1-0
+    model_info:
+      output_cost_per_image: 0.07
+  - model_name: stability-stable-image-control-structure-v1-0  # $0.0700/image (via stability.stable-image-control-structure-v1:0)
     litellm_params:
       model: bedrock/stability.stable-image-control-structure-v1:0
       aws_region_name: us-east-1
-  - model_name: stability-stable-image-erase-object-v1-0
+    model_info:
+      output_cost_per_image: 0.07
+  - model_name: stability-stable-image-erase-object-v1-0  # $0.0700/image (via stability.stable-image-erase-object-v1:0)
     litellm_params:
       model: bedrock/stability.stable-image-erase-object-v1:0
       aws_region_name: us-east-1
-  - model_name: stability-stable-image-inpaint-v1-0
+    model_info:
+      output_cost_per_image: 0.07
+  - model_name: stability-stable-image-inpaint-v1-0  # $0.0700/image (via stability.stable-image-inpaint-v1:0)
     litellm_params:
       model: bedrock/stability.stable-image-inpaint-v1:0
       aws_region_name: us-east-1
-  - model_name: stability-stable-image-remove-background-v1-0
+    model_info:
+      output_cost_per_image: 0.07
+  - model_name: stability-stable-image-remove-background-v1-0  # $0.0700/image (via stability.stable-image-remove-background-v1:0)
     litellm_params:
       model: bedrock/stability.stable-image-remove-background-v1:0
       aws_region_name: us-east-1
-  - model_name: stability-stable-image-search-recolor-v1-0
+    model_info:
+      output_cost_per_image: 0.07
+  - model_name: stability-stable-image-search-recolor-v1-0  # $0.0700/image (via stability.stable-image-search-recolor-v1:0)
     litellm_params:
       model: bedrock/stability.stable-image-search-recolor-v1:0
       aws_region_name: us-east-1
-  - model_name: stability-stable-image-search-replace-v1-0
+    model_info:
+      output_cost_per_image: 0.07
+  - model_name: stability-stable-image-search-replace-v1-0  # $0.0700/image (via stability.stable-image-search-replace-v1:0)
     litellm_params:
       model: bedrock/stability.stable-image-search-replace-v1:0
       aws_region_name: us-east-1
-  - model_name: stability-stable-image-style-guide-v1-0
+    model_info:
+      output_cost_per_image: 0.07
+  - model_name: stability-stable-image-style-guide-v1-0  # $0.0700/image (via stability.stable-image-style-guide-v1:0)
     litellm_params:
       model: bedrock/stability.stable-image-style-guide-v1:0
       aws_region_name: us-east-1
-  - model_name: stability-stable-outpaint-v1-0
+    model_info:
+      output_cost_per_image: 0.07
+  - model_name: stability-stable-outpaint-v1-0  # $0.0600/image (via stability.stable-outpaint-v1:0)
     litellm_params:
       model: bedrock/stability.stable-outpaint-v1:0
       aws_region_name: us-east-1
-  - model_name: stability-stable-style-transfer-v1-0
+    model_info:
+      output_cost_per_image: 0.06
+  - model_name: stability-stable-style-transfer-v1-0  # $0.0800/image (via stability.stable-style-transfer-v1:0)
     litellm_params:
       model: bedrock/stability.stable-style-transfer-v1:0
       aws_region_name: us-east-1
-
-  # ── Other ──
-  - model_name: amazon-nova-2-sonic-v1-0
+    model_info:
+      output_cost_per_image: 0.08
+  - model_name: amazon-nova-2-sonic-v1-0  # $0.33 in / $2.75 out per 1M tokens (via amazon.nova-2-sonic-v1:0)
     litellm_params:
       model: bedrock/amazon.nova-2-sonic-v1:0
       aws_region_name: us-east-1
-  - model_name: amazon-nova-sonic-v1-0
+    model_info:
+      input_cost_per_token: 3.3e-07
+      output_cost_per_token: 2.75e-06
+  - model_name: amazon-nova-sonic-v1-0  # $0.06 in / $0.24 out per 1M tokens (via amazon.nova-sonic-v1:0)
     litellm_params:
       model: bedrock/amazon.nova-sonic-v1:0
       aws_region_name: us-east-1
+    model_info:
+      input_cost_per_token: 6.0e-08
+      output_cost_per_token: 2.4e-07
 
 litellm_settings:
   num_retries: 2
   request_timeout: 600
-  set_verbose: false
-  drop_params: true
-  cache: true
+  set_verbose: False
+  drop_params: True
+  cache: True
   cache_params:
     type: redis
     host: os.environ/REDIS_HOST
@@ -807,4 +1466,4 @@ router_settings:
   redis_password: os.environ/REDIS_PASSWORD
 
 general_settings:
-  master_key: os.environ/LITELLM_MASTER_KEY  # required - set in .env
+  master_key: os.environ/LITELLM_MASTER_KEY
